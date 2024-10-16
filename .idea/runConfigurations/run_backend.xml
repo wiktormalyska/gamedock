@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="run backend" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <envs>
+      <env name="DATABASE_DB" value="gamedock" />
+      <env name="DATABASE_HOST" value="localhost" />
+      <env name="DATABASE_PASSWORD" value="gamedock_password" />
+      <env name="DATABASE_USER" value="gamedock" />
+      <env name="APP_VERSION" value="0.1" />
+    </envs>
+    <module name="backend.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="ovh.wiktormalyska.backend.BackendApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
