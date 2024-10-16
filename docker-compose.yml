@@ -1,0 +1,34 @@
+services:
+  backend:
+    container_name: gamedock-backend
+    build:
+      context: backend/
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - gamedock
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      DATABASE_HOST: database
+      DATABASE_USER: "${POSTGRES_USER}"
+      DATABASE_PASSWORD: "${POSTGRES_PASSWORD}"
+      DATABASE_DB: "${POSTGRES_DB}"
+      APP_VERSION: "${APP_VERSION}"
+
+
+  database:
+    container_name: gamedock-database
+    image: postgres:17
+    networks:
+      - gamedock
+    volumes:
+      - ./database/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      POSTGRES_DB: "${POSTGRES_DB}"
+
+networks:
+  gamedock:
+    name: gamedock
